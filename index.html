@@ -1,0 +1,117 @@
+<!DOCTYPE html> <!-- Indica que el documento está escrito en HTML5 -->
+<html lang="en"> <!-- Define el idioma principal del contenido (inglés en este caso) -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres (UTF-8 para admitir acentos y símbolos) -->
+    <title>Pepinos Manolo</title> <!-- Título que aparecerá en la pestaña del navegador -->
+</head>
+
+<body> <!-- Contenido visible de la página -->
+
+    <!-- Este va a ser mi título principal -->
+    <h1>Pepinos Manolo</h1> <!-- Encabezado principal de la página -->
+
+    <!-- Enlace que abre en una pestaña nueva usando target="_blank" -->
+    <a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a>
+    <p></p> <!-- Salto de línea mediante un párrafo vacío -->
+
+    <!-- Imagen con tamaño fijo y atributos alt y title -->
+    <img src="pepino.png" width="150" alt="icono de pepino" title="Pepino vigoroso y tieso">
+
+    <h2>Tipo de pepino</h2> <!-- Segundo nivel de encabezado -->
+
+    <!-- Lista sin orden (viñetas) -->
+    <ul>
+        <li><a href="https://www.agroboca.com/comprar/pepinos">Pepino moreno</a></li> <!-- Elemento con enlace -->
+        <li>Pepino rubio</li> <!-- Elemento sin enlace -->
+        <li>Pepino albino</li>
+    </ul>
+
+    <h3>Pepinos Manolo</h3> <!-- Encabezado de tercer nivel -->
+
+    <!-- Párrafos de texto, con <strong> para resaltar en negrita -->
+    <p> Los <strong>mejores</strong> pepinos del mundo </p>
+    <p> Pruébalos ya!</p>
+
+    <!-- Sección con identificador "pedidos" -->
+    <section id="pedidos">
+
+        <h2>Mis pedidos</h2>
+
+        <!-- Tabla con borde -->
+        <table border="1">
+            <!-- Cabecera de la tabla -->
+            <thead>
+                <tr>
+                    <th>Nº Pedido</th> <!-- Celda de encabezado -->
+                    <th>Fecha</th>
+                    <th>Importe</th>
+                    <th colspan="2">Ver detalles</th> <!-- colspan fusiona dos columnas -->
+                </tr>
+            </thead>
+
+            <!-- Cuerpo de la tabla -->
+            <tbody>
+                <tr>
+                    <td>#012</td>
+                    <td>14/01/2025</td>
+                    <td>221€</td>
+                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
+                </tr>
+                <tr>
+                    <td>#013</td>
+                    <td>14/01/2025</td>
+                    <td>221€</td>
+                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
+                </tr>
+                <tr>
+                    <td>#014</td>
+                    <td>14/01/2025</td>
+                    <td>52</td> <!-- Falta el símbolo de € aquí -->
+                    <td>52</td> <!-- Posible error: parece un valor duplicado -->
+                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
+                </tr>
+                <tr>
+                    <td>#015</td>
+                    <td>14/01/2025</td>
+                    <td>221€</td>
+                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Varios saltos verticales -->
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+
+        <!-- Inicio del formulario -->
+        <form>
+
+            <label>Nombre:</label> <!-- Etiqueta para el campo de texto -->
+            <input type="text" placeholder="Escribe aquí tu nombre" required> <!-- Campo obligatorio gracias a "required" -->
+            <p></p>
+
+            <label>Edad:</label>
+            <input type="number" placeholder="Escribe aquí tu edad"> <!-- Campo de tipo numérico -->
+            <p></p>
+
+            <label>Fecha nacimiento:</label>
+            <input type="date"> <!-- Selector de fecha -->
+            <p></p>
+
+            <label>Email:</label>
+            <input type="email" placeholder="tu correo"> <!-- Verifica formato email -->
+            <p></p>
+
+            <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
+        </form>
+
+    </section>
+
+</body>
+</html>
