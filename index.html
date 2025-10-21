@@ -1,117 +1,405 @@
-<!DOCTYPE html> <!-- Indica que el documento está escrito en HTML5 -->
-<html lang="en"> <!-- Define el idioma principal del contenido (inglés en este caso) -->
+<!DOCTYPE html>
+<!--
+  DOCTYPE declara que el documento usa HTML5 (la versión estándar actual).
+  * No es una etiqueta HTML, es una instrucción para el navegador.
+  * Evita que el navegador entre en "quirks mode" (modo de compatibilidad antiguo).
+-->
+
+<html lang="en">
+<!--
+  <html> envuelve TODO el documento.
+  Atributos clave:
+  * lang="en" indica el idioma principal del contenido. Si tu página está en español,
+    lo ideal es lang="es" para que lectores de pantalla, correctores y buscadores
+    apliquen reglas adecuadas (separadores, pronunciación, etc.).
+-->
 
 <head>
-    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres (UTF-8 para admitir acentos y símbolos) -->
-    <title>Pepinos Manolo</title> <!-- Título que aparecerá en la pestaña del navegador -->
+  <!--
+    <head> contiene metadatos y recursos que NO se muestran directamente en la página:
+    codificación, título, iconos, hojas de estilo, scripts que cargan en cabecera, SEO, etc.
+  -->
+
+  <meta charset="UTF-8">
+  <!--
+    Define la codificación de caracteres como UTF-8.
+    * Permite usar tildes, eñes y símbolos sin problemas.
+    * Debe ir lo más arriba posible en <head> para aplicarse antes de leer el resto.
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    Hace la página responsive en móviles.
+    * width=device-width hace que el ancho de la "ventana gráfica" coincida con el del dispositivo.
+    * initial-scale=1.0 establece el nivel de zoom inicial.
+    * Opcionalmente se añaden propiedades como user-scalable=no (no recomendado por accesibilidad).
+  -->
+
+  <title>Mi primera página</title>
+  <!--
+    Título que verás en la pestaña del navegador y como texto por defecto al guardar favoritos.
+    * Único por página.
+    * Útil para SEO y accesibilidad (describe el contenido de la página).
+  -->
+
+  <!--
+    Aquí también suelen incluirse:
+    * <link rel="icon" href="/favicon.ico">
+    * <link rel="stylesheet" href="styles.css">
+    * <meta name="description" content="Descripción corta de la página">
+  -->
 </head>
 
-<body> <!-- Contenido visible de la página -->
+<body>
+  <!--
+    <body> contiene todo el contenido visible: encabezados, párrafos, imágenes, enlaces, tablas, formularios, etc.
+    * Semántica recomendada (no incluida aquí por mantener tu ejemplo): <header>, <main>, <footer>, <nav>, <section>, <article>…
+  -->
 
-    <!-- Este va a ser mi título principal -->
-    <h1>Pepinos Manolo</h1> <!-- Encabezado principal de la página -->
+  <!-- Comentario HTML: no se muestra en la página. Útil para dejar notas al equipo. -->
 
-    <!-- Enlace que abre en una pestaña nueva usando target="_blank" -->
-    <a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a>
-    <p></p> <!-- Salto de línea mediante un párrafo vacío -->
+  <h1>Pepinillos Manolo</h1>
+  <!--
+    <h1> es el encabezado principal (nivel 1). Debe describir el tema de la página.
+    * Solo debería existir un <h1> por página en la mayoría de casos.
+    * Los niveles <h1>…<h6> definen jerarquía (estructuran el documento para SEO/lectores de pantalla).
+  -->
 
-    <!-- Imagen con tamaño fijo y atributos alt y title -->
-    <img src="pepino.png" width="150" alt="icono de pepino" title="Pepino vigoroso y tieso">
+  <h2>Pepinillos</h2>
+  <!-- <h2> es un subtítulo de segundo nivel, hijo temático del <h1>. -->
 
-    <h2>Tipo de pepino</h2> <!-- Segundo nivel de encabezado -->
+  <h2>Manolo</h2>
+  <!-- Otro <h2>. Mantén la jerarquía lógica (evita saltos como pasar de <h2> a <h4> sin <h3>). -->
 
-    <!-- Lista sin orden (viñetas) -->
-    <ul>
-        <li><a href="https://www.agroboca.com/comprar/pepinos">Pepino moreno</a></li> <!-- Elemento con enlace -->
-        <li>Pepino rubio</li> <!-- Elemento sin enlace -->
-        <li>Pepino albino</li>
-    </ul>
+  <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
+    Clic para ir a Google
+  </a>
+  <!--
+    <a> crea un enlace.
+    * href: URL de destino (absoluta o relativa).
+    * target="_blank": abre en nueva pestaña.
+    * IMPORTANTE: añade rel="noopener noreferrer" por seguridad/rendimiento al usar _blank
+      (evita que la página destino pueda acceder a window.opener de la original).
+    * El texto del enlace debe ser descriptivo (mejor "Ir a Google" que "clic").
+  -->
 
-    <h3>Pepinos Manolo</h3> <!-- Encabezado de tercer nivel -->
+  <img src="pepino.png" alt="Logotipo: pepino torcido" width="200" height="200" title="Logo pepino" loading="lazy">
+  <!--
+    <img> inserta una imagen.
+    * src: ruta al recurso (local o remota).
+    * alt: texto alternativo que se lee si la imagen no carga o para usuarios de lectores de pantalla.
+      - Debe describir la función de la imagen ("Botón buscar" vs. descripción visual inútil).
+    * width/height: reservar espacio y evitar reflujo; idealmente acompaña con tamaños reales/ratio.
+    * title: tooltip opcional al pasar el ratón (NO sustituye al alt).
+    * loading="lazy": difiere la carga hasta que sea necesaria (mejora rendimiento).
+  -->
 
-    <!-- Párrafos de texto, con <strong> para resaltar en negrita -->
-    <p> Los <strong>mejores</strong> pepinos del mundo </p>
-    <p> Pruébalos ya!</p>
+  <h3>Pepinillos Manolo</h3>
+  <!-- <h3> es un subtítulo de tercer nivel, dependiente de <h2>. -->
 
-    <!-- Sección con identificador "pedidos" -->
-    <section id="pedidos">
+  <p>Hola qué ase</p>
+  <!--
+    <p> define un párrafo de texto.
+    * Evita anidar bloques dentro de <p> salvo elementos en línea (<a>, <strong>, <em>, <span>…).
+  -->
 
-        <h2>Mis pedidos</h2>
+  <h2>Tipos de pepino</h2>
 
-        <!-- Tabla con borde -->
-        <table border="1">
-            <!-- Cabecera de la tabla -->
-            <thead>
-                <tr>
-                    <th>Nº Pedido</th> <!-- Celda de encabezado -->
-                    <th>Fecha</th>
-                    <th>Importe</th>
-                    <th colspan="2">Ver detalles</th> <!-- colspan fusiona dos columnas -->
-                </tr>
-            </thead>
+  <ul>
+    <!-- <ul> lista NO ordenada (viñetas). -->
+    <li><a href="https://www.google.com/">Pepino albino</a></li>
+    <!--
+      <li> es un ítem de lista.
+      * Puede contener texto u otros elementos (enlaces, imágenes…).
+    -->
+    <li>Pepino moreno</li>
+    <li>Pepino rubio</li>
+  </ul>
+  <!--
+    Para listas con orden lógico (1,2,3…) usa <ol> (lista ordenada).
+    Para descripciones usa <dl> con <dt>/<dd>.
+  -->
 
-            <!-- Cuerpo de la tabla -->
-            <tbody>
-                <tr>
-                    <td>#012</td>
-                    <td>14/01/2025</td>
-                    <td>221€</td>
-                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
-                </tr>
-                <tr>
-                    <td>#013</td>
-                    <td>14/01/2025</td>
-                    <td>221€</td>
-                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
-                </tr>
-                <tr>
-                    <td>#014</td>
-                    <td>14/01/2025</td>
-                    <td>52</td> <!-- Falta el símbolo de € aquí -->
-                    <td>52</td> <!-- Posible error: parece un valor duplicado -->
-                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
-                </tr>
-                <tr>
-                    <td>#015</td>
-                    <td>14/01/2025</td>
-                    <td>221€</td>
-                    <td><a href="https://www.agroboca.com/comprar/pepinos" target="_blank"> Visitar tienda</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+  <h2>LISTA DE PEDIDOS</h2>
 
-    <!-- Varios saltos verticales -->
-    <p></p>
-    <p></p>
-    <p></p>
+  <table border="1">
+    <!--
+      <table> representa datos tabulares.
+      * border="1" es heredado de HTML antiguo; hoy se recomienda CSS (p.ej. table { border-collapse: collapse } td, th { border: 1px solid #ccc }).
+      * Mantén una estructura semántica clara con <thead>, <tbody> y <tfoot>.
+      * Cada fila es <tr>; las celdas de encabezado usan <th> (por defecto en negrita y centradas),
+        las celdas de datos usan <td>.
+    -->
+    <thead>
+      <tr>
+        <th scope="col">Nº PEDIDO</th>
+        <th scope="col">FECHA</th>
+        <th scope="col">IMPORTE</th>
+        <th scope="col">VER</th>
+        <th scope="col" colspan="2">ACCIÓN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Filas de datos. Considera usar <th scope="row"> para el identificador principal de cada fila. -->
+      <tr>
+        <td>#1234</td>
+        <td>12/12/2025</td>
+        <td>225€</td>
+        <td><a href="#">clic</a></td>
+        <td><button type="button">editar</button></td>
+        <td><button type="button">borrar</button></td>
+      </tr>
+      <tr>
+        <td>#1234</td>
+        <td>12/12/2025</td>
+        <td>225€</td>
+        <td><a href="#">clic</a></td>
+        <td><button type="button">editar</button></td>
+        <td><button type="button">borrar</button></td>
+      </tr>
+      <tr>
+        <td>#1234</td>
+        <td>12/12/2025</td>
+        <td>225€</td>
+        <td><a href="#">clic</a></td>
+        <td><button type="button">editar</button></td>
+        <td><button type="button">borrar</button></td>
+      </tr>
+      <tr>
+        <td>#1234</td>
+        <td>12/12/2025</td>
+        <td>225€</td>
+        <td><a href="#">clic</a></td>
+        <td><button type="button">editar</button></td>
+        <td><button type="button">borrar</button></td>
+      </tr>
+      <tr>
+        <td>#1234</td>
+        <td>12/12/2025</td>
+        <td>225€</td>
+        <td><a href="#">clic</a></td>
+        <td><button type="button">editar</button></td>
+        <td><button type="button">borrar</button></td>
+      </tr>
+      <tr>
+        <td>#1234</td>
+        <td>12/12/2025</td>
+        <td>225€</td>
+        <td><a href="#">clic</a></td>
+        <td><button type="button">editar</button></td>
+        <td><button type="button">borrar</button></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">Total pedidos : 6</td>
+      </tr>
+    </tfoot>
+  </table>
+  <!--
+    Accesibilidad de tablas:
+    * Usa <caption> si necesitas un título visible para la tabla.
+    * Usa scope="col"/"row" o headers/id para asociar celdas y encabezados cuando hay cabeceras múltiples.
+  -->
 
-    <!-- Sección de contacto -->
-    <section id="contacto">
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--
+    <br> inserta un salto de línea. Úsalo con moderación; para espaciados es mejor CSS (márgenes/padding).
+  -->
 
-        <!-- Inicio del formulario -->
-        <form>
+  <form id="contact-form">
+    <!--
+      <form> agrupa controles para enviar datos.
+      * id: identificador único en el DOM.
+      * action (omitido): URL que recibirá los datos. Si falta, el envío recarga la misma página.
+      * method (omitido): por defecto GET; para datos sensibles o creación/edición usa POST.
+      * autocomplete, novalidate, enctype son otros atributos útiles.
+    -->
 
-            <label>Nombre:</label> <!-- Etiqueta para el campo de texto -->
-            <input type="text" placeholder="Escribe aquí tu nombre" required> <!-- Campo obligatorio gracias a "required" -->
-            <p></p>
+    <fieldset>
+      <!-- <fieldset> agrupa campos relacionados y dibuja un marco temático. -->
+      <legend>Datos básicos</legend>
+      <!-- <legend> título del grupo; mejora accesibilidad. -->
 
-            <label>Edad:</label>
-            <input type="number" placeholder="Escribe aquí tu edad"> <!-- Campo de tipo numérico -->
-            <p></p>
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" name="nombre" type="text" placeholder="Escribe aquí tu nombre" required>
+      <!--
+        <label> describe el propósito del control; asociarlo por for/id mejora accesibilidad y usabilidad.
+        <input type="text"> campo de una sola línea para texto libre.
+        * placeholder: texto guía temporal.
+        * required: el navegador valida que no esté vacío antes de enviar.
+        * name: clave con la que se enviará el valor en el formulario.
+      -->
 
-            <label>Fecha nacimiento:</label>
-            <input type="date"> <!-- Selector de fecha -->
-            <p></p>
+      <p></p>
 
-            <label>Email:</label>
-            <input type="email" placeholder="tu correo"> <!-- Verifica formato email -->
-            <p></p>
+      <label for="edad">Edad:</label>
+      <input id="edad" name="edad" type="number" min="2" max="10" step="0.1" placeholder="Escribe aquí tu edad">
+      <!--
+        type="number": acepta números (muestra flechas y teclado numérico en móvil).
+        * min/max: límites permitidos.
+        * step: incremento de las flechas y validación (0.1 permite decimales).
+      -->
 
-            <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
-        </form>
+      <p></p>
 
-    </section>
+      <label for="nacimiento">Fecha nacimiento:</label>
+      <input id="nacimiento" name="nacimiento" type="date" placeholder="Escribe aquí tu fecha">
+      <!-- type="date": selector de calendario (formato depende del navegador/locale). -->
+
+      <p></p>
+
+      <label for="email">Email:</label>
+      <input id="email" name="email" type="email" placeholder="Escribe aquí tu email">
+      <!-- type="email": valida formato básico de correo y muestra teclado específico en móvil. -->
+
+      <p></p>
+
+      <label for="tel">Teléfono:</label>
+      <input id="tel" name="telefono" type="tel" placeholder="Escribe aquí tu teléfono" pattern="[\\d\\s+()-]{7,}">
+      <!--
+        type="tel": teclado telefónico en móvil. pattern: ejemplo laxo que permite dígitos, espacios y +()-.
+        * Ajusta el patrón a las reglas reales si necesitas validación estricta.
+      -->
+
+      <p></p>
+
+      <label for="pass">Contraseña:</label>
+      <input id="pass" name="password" type="password" minlength="8" placeholder="Escribe aquí tu contraseña" autocomplete="new-password">
+      <!--
+        type="password": oculta caracteres.
+        * minlength: longitud mínima.
+        * autocomplete: sugiere al navegador cómo tratar el campo (new-password/current-password).
+      -->
+
+      <p></p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Fecha, hora y número</legend>
+
+      <label for="inicio">Hora de inicio:</label>
+      <input id="inicio" name="hora_inicio" type="time" step="60">
+      <!-- type="time": selector de hora. step en segundos (60 = precisión a minutos). -->
+
+      <p></p>
+
+      <label for="cita1">Cita:</label>
+      <input id="cita1" name="cita1" type="datetime-local">
+      <!-- type="datetime-local": fecha y hora sin zona horaria. -->
+
+      <p></p>
+
+      <label for="cita2">Cita:</label>
+      <input id="cita2" name="cita2" type="datetime-local">
+
+      <p></p>
+
+      <label for="mes">Mes :</label>
+      <input id="mes" name="mes" type="month">
+      <!-- type="month": selector de mes/año. -->
+
+      <p></p>
+
+      <label for="semana">Semana :</label>
+      <input id="semana" name="semana" type="week">
+      <!-- type="week": semana ISO (año + número de semana). -->
+
+      <p></p>
+
+      <label for="prioridad">Prioridad :</label>
+      <input id="prioridad" name="prioridad" type="range" min="0" max="100" value="50" oninput="document.getElementById('valorRango').value=this.value">
+      <output id="valorRango">50</output>
+      <!--
+        type="range": deslizador. Añade min/max/value para rango/control inicial.
+        <output>: elemento para mostrar resultados de cálculo o feedback del control.
+        * oninput: evento que reacciona en tiempo real al mover el deslizador.
+      -->
+
+      <p></p>
+
+      <label for="color">Color favorito :</label>
+      <input id="color" name="color" type="color" value="#555555">
+      <!-- type="color": selector de color (devuelve valor hex). -->
+
+      <p></p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Opciones y listas</legend>
+
+      <fieldset>
+        <!-- Grupo de botones de opción (radio). Compartir el mismo name los hace mutuamente excluyentes. -->
+        <legend>Tipo de pepino</legend>
+
+        <input id="tipo_moreno" type="radio" name="tipo_pepino" value="moreno" checked>
+        <label for="tipo_moreno">Moreno</label>
+
+        <input id="tipo_kirby" type="radio" name="tipo_pepino" value="kirby">
+        <label for="tipo_kirby">Kirby</label>
+
+        <input id="tipo_rubio" type="radio" name="tipo_pepino" value="rubio">
+        <label for="tipo_rubio">Rubio</label>
+        <!--
+          Accesibilidad: cada input con su label asociado por for/id para ampliar área clicable.
+        -->
+      </fieldset>
+
+      <fieldset>
+        <legend>Extras</legend>
+
+        <input id="ext_ketchup" type="checkbox" name="extras" value="ketchup">
+        <label for="ext_ketchup">Ketchup</label>
+        <p></p>
+
+        <input id="ext_costilleta" type="checkbox" name="extras" value="costilleta">
+        <label for="ext_costilleta">Costilleta</label>
+        <p></p>
+
+        <input id="ext_nocilla" type="checkbox" name="extras" value="nocilla">
+        <label for="ext_nocilla">Nocilla</label>
+        <p></p>
+        <!--
+          Checkboxes permiten selección múltiple. Con el mismo name, el servidor recibirá varias claves con ese name.
+          En algunos backends conviene usar name="extras[]" para recibir un array.
+        -->
+      </fieldset>
+
+      <label for="s-variedad">Variedad</label>
+      <select id="s-variedad" name="s-variedad">
+        <!-- <select>: lista desplegable. -->
+        <option value="sinOpcion">------</option>
+        <optgroup label="Clásicos">
+          <option value="Holandés">Holandés</option>
+          <option value="Espanol">Español</option>
+        </optgroup>
+        <optgroup label="Modernos">
+          <option value="Pelao">Pelao</option>
+        </optgroup>
+      </select>
+
+      <p></p>
+
+    </fieldset>
+
+    <button type="submit">Enviar</button>
+    <!--
+      <button> por defecto es type="submit" (envía el formulario). Es buena práctica declararlo explícitamente.
+      Otros tipos: type="button" (no envía), type="reset" (reinicia valores por defecto).
+    -->
+  </form>
+
+  <!--
+    Buenas prácticas generales adicionales:
+    * Valida del lado del servidor SIEMPRE, aunque uses validación HTML5 en el cliente.
+    * Usa CSS para espaciados (<br> solo para saltos de línea en contenidos, no para maquetar).
+    * Añade mensajes de error/ayuda con aria-live para accesibilidad si implementas validación personalizada.
+    * Considera <main> para envolver el contenido principal y <footer> para el pie de página.
+  -->
 
 </body>
+
 </html>
