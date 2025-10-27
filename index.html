@@ -224,8 +224,9 @@
       <legend>Datos básicos</legend>
       <!-- <legend> título del grupo; mejora accesibilidad. -->
 
-      <label for="nombre">Nombre:</label>
-      <input id="nombre" name="nombre" type="text" placeholder="Escribe aquí tu nombre" required>
+      <label for="nombre">Nombre:
+        <input id="nombre" name="nombre" type="text" placeholder="Escribe aquí tu nombre" required>
+      </label>
       <!--
         <label> describe el propósito del control; asociarlo por for/id mejora accesibilidad y usabilidad.
         <input type="text"> campo de una sola línea para texto libre.
@@ -268,7 +269,8 @@
       <p></p>
 
       <label for="pass">Contraseña:</label>
-      <input id="pass" name="password" type="password" minlength="8" placeholder="Escribe aquí tu contraseña" autocomplete="new-password">
+      <input id="pass" name="password" type="password" minlength="8" placeholder="Escribe aquí tu contraseña"
+        autocomplete="new-password">
       <!--
         type="password": oculta caracteres.
         * minlength: longitud mínima.
@@ -311,7 +313,8 @@
       <p></p>
 
       <label for="prioridad">Prioridad :</label>
-      <input id="prioridad" name="prioridad" type="range" min="0" max="100" value="50" oninput="document.getElementById('valorRango').value=this.value">
+      <input id="prioridad" name="prioridad" type="range" min="0" max="100" value="50"
+        oninput="document.getElementById('valorRango').value=this.value">
       <output id="valorRango">50</output>
       <!--
         type="range": deslizador. Añade min/max/value para rango/control inicial.
@@ -382,14 +385,96 @@
       </select>
 
       <p></p>
+      <p></p>
 
+      <label>Lote (elige varios)</label>
+      <!-- <label> muestra un texto descriptivo para el campo siguiente.
+     Aquí indica al usuario que debe elegir uno o varios lotes. -->
+
+      <select name="lotes[]" multiple size="5">
+        <!-- <select> crea una lista desplegable o un cuadro de selección.
+       - name="lotes[]" usa corchetes [] para indicar que se pueden enviar varios valores (como un array).
+       - multiple permite seleccionar más de una opción.
+       - size="5" muestra 5 opciones visibles al mismo tiempo (sin necesidad de desplegar). -->
+
+        <optgroup label="LOTES PREMIUM">
+          <!-- <optgroup> agrupa opciones relacionadas bajo una categoría, 
+         que se muestra como un título no seleccionable en la lista. -->
+          <option value="lote-a">LOTE A</option>
+          <option value="lote-b">LOTE B</option>
+          <!-- Cada <option> representa una posible elección.
+         - El atributo value es el valor que se enviará al servidor si se selecciona. -->
+        </optgroup>
+
+        <optgroup label="LOTES NORMALES">
+          <!-- Segundo grupo de opciones -->
+          <option value="lote-c">LOTE C</option>
+          <option value="lote-d">LOTE D</option>
+          <option value="lote-e">LOTE E</option>
+          <option value="lote-f">LOTE F</option>
+        </optgroup>
+      </select>
+      <!-- Cierre de la lista de selección -->
+
+    </fieldset>
+    <!-- Cierre del grupo anterior de campos del formulario -->
+
+    <fieldset>
+      <!-- <fieldset> agrupa varios controles de formulario relacionados. -->
+      <legend>Textos y archivos</legend>
+      <!-- <legend> proporciona un título descriptivo al grupo de campos. -->
+
+      <label>Observaciones: </label>
+      <!-- Texto explicativo para el área de texto. -->
+
+      <textarea id="textarea1" rows="4" cols="40"></textarea>
+      <!-- <textarea> crea un campo de texto multilínea.
+       - id="textarea1" permite identificarlo en CSS o JavaScript.
+       - rows y cols definen el tamaño visible del área. -->
+
+      <p></p>
+      <p></p>
+      <!-- Párrafos vacíos usados para añadir separación visual (aunque sería mejor hacerlo con CSS). -->
+
+      <label>Adjuntar factura(s)</label>
+      <!-- Texto explicativo para el siguiente campo de tipo archivo. -->
+
+      <input id="facturas" type="file" accept=".pdf, .jpg" multiple>
+      <!-- <input type="file"> permite seleccionar uno o varios archivos.
+       - id="facturas" lo identifica en el formulario.
+       - accept=".pdf, .jpg" restringe el tipo de archivos que el usuario puede subir.
+       - multiple permite seleccionar más de un archivo. -->
+    </fieldset>
+
+    <fieldset>
+      <legend>Progreso</legend>
+      <!-- Título del grupo de campos relacionados con el progreso. -->
+
+      <label>Progreso de la carga</label>
+      <!-- Texto descriptivo para la barra de progreso. -->
+
+      <progress value="70" max="100"></progress>
+      <!-- <progress> muestra una barra de progreso.
+       - value="70" indica el progreso actual (70%).
+       - max="100" indica el valor máximo (100%).
+       Esta etiqueta puede actualizarse dinámicamente con JavaScript durante una carga. -->
     </fieldset>
 
     <button type="submit">Enviar</button>
+    <!-- Botón que envía los datos del formulario al servidor. -->
+
+    <button type="reset">Limpiar formulario</button>
+    <!-- Botón que restablece los campos del formulario a sus valores iniciales. -->
+
     <!--
-      <button> por defecto es type="submit" (envía el formulario). Es buena práctica declararlo explícitamente.
-      Otros tipos: type="button" (no envía), type="reset" (reinicia valores por defecto).
-    -->
+  NOTA:
+  Si no se especifica el atributo "type", un <button> se comporta como type="submit".
+  Tipos posibles:
+  - type="submit": envía el formulario.
+  - type="reset": reinicia los valores de todos los campos.
+  - type="button": no realiza ninguna acción (se usa con JavaScript).
+-->
+
   </form>
 
   <!--
